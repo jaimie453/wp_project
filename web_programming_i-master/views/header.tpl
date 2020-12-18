@@ -1,6 +1,7 @@
-<h3 class="w3-block w3-grey w3-center">Basic Todo List, version 1.1</h3>
 <div class="w3-bar w3-teal">
-  <a href="/login"><button class="w3-bar-item w3-button">Login</button></a>
-  <a href="/logout"><button class="w3-bar-item w3-button">Logout</button></a>
-  <a href="/new_item"><button class="w3-bar-item w3-button">New item...</button></a>
+  <a href="/"><button class="w3-bar-item w3-button">Home</button></a>
+  <a href="/new_item"><button class="w3-bar-item w3-button">Add task</button></a>
+  <a href="/logout" style="float: right;"><button class="w3-bar-item w3-button">Logout</button></a>
 </div>
+
+<h2 class="w3-center" style="margin: 20px;">Basic Todo List</h2>

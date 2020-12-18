@@ -116,17 +116,6 @@ def post_register():
     db['profile'].insert({'username':username, 'password':password})
     redirect('/')
 
-
-# @get('/')
-# def get_show_list():
-#     session = get_session(request, response)
-#     if session['username'] == 'Guest':
-#         redirect('/login')
-#         return
-#     result = db['todo'].all()
-#     result=[dict(r) for r in result]
-#     return template("show_list", rows=result, session=session)
-
 @get('/')
 def get_show_list_ajax():
     session = get_session(request, response)
@@ -134,7 +123,7 @@ def get_show_list_ajax():
         redirect('/login')
         return
     print(base_url)
-    return template("show_list", session=session, base_url=base_url)
+    return template("home", base_url=base_url)
 
 @get('/get_tasks')
 def get_get_tasks():
@@ -143,9 +132,21 @@ def get_get_tasks():
     if session['username'] == 'Guest':
         return "[]"
     else:
-        result = db['todo'].all()
+        result = db['todo'].find(status=False)
         tasks= [dict(r) for r in result]
-        print(tasks)
+        text = json.dumps(tasks)
+        return text
+
+@get('/get_completed_tasks')
+def get_get_completed_tasks():
+    session = get_session(request, response)
+    response.content_type = 'application/json'
+    if session['username'] == 'Guest':
+        return "[]"
+    else:
+        result = db['todo'].find(status=True)
+        tasks= [dict(r) for r in result]
+        print("get_completed_tasks length ", len(tasks))
         text = json.dumps(tasks)
         return text
 
