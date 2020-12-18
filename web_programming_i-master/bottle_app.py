@@ -170,6 +170,15 @@ def get_delete_item(id):
     db['todo'].delete(id=id)
     redirect('/')
 
+@get('/clear_completed_tasks')
+def get_clear_completed_tasks():
+    session = get_session(request, response)
+    if session['username'] == 'Guest':
+        redirect('/login')
+        return
+    db['todo'].delete(status=True)
+    redirect('/')
+
 
 @get('/update_task/<id:int>')
 def get_update_task(id):
@@ -187,7 +196,7 @@ def post_update_task():
     if session['username'] == 'Guest':
         redirect('/login')
         return
-    id = int(request.forms.get("id").strip())
+    id = int(request.forms.get("id"))
     updated_task = request.forms.get("updated_task").strip()
     db['todo'].update({'id':id, 'task':updated_task},['id'])
     redirect('/')

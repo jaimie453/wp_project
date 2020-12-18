@@ -1,2 +1,2 @@
 <hr>
-<p style="margin-left: 20px;">Version 1.1</p>
+<p style="float: right; margin-right: 20px;">Version 1.1</p>

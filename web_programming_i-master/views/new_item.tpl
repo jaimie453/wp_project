@@ -5,7 +5,7 @@
 </head>
 <body>
     %include("header.tpl")
-    <div style="width: 50%; margin: auto;">
+    <div style="width: 60%; margin: auto;">
         <p class="w3-center">Create a new task:</p>
         <form class="w3-center" action="/new_item" method="POST">
             <input type="text" size="75" maxlength="100" name="new_task" placeholder="Do the dishes..."/>

@@ -1,9 +1,34 @@
-<p>Register</p>
-<form action="/register" method="POST">
-    User Name: <input type="text" size="100" maxlength="100" name="username"/><br>
-    Password:  <input type="text" size="100" maxlength="100" name="password"/><br>
-    <hr>
-    Token: <input type="text" size="100" maxlength="100" name="csrf_token" value="{{csrf_token}}"/><br>
-    <hr>
-    <input type="submit" name="register" value="Register"/>
-</form>
+<html>
+    <head>
+        <title>Todo List 0.001</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="w3-bar w3-teal">
+            <a href="/login" style="float: right;"><button class="w3-bar-item w3-button">Login</button></a>
+        </div>
+
+        <h2 class="w3-center" style="margin: 20px;">Basic Todo List</h2>
+
+        <div class="w3-container">
+            <h3 class="w3-center">Register</h3>
+            <br>
+            <form class="w3-center" action="/register" method="POST">
+                <div>
+                    <div>User Name:</div>
+                    <div><input type="text" size="30" maxlength="30" name="username"/><br></div>
+                </div>
+                <br>
+                <div>
+                    <div>Password:</div>  
+                    <div><input type="text" size="30" maxlength="30" name="password"/><br></div>
+                </div>
+                <input type="text" size="30" maxlength="30" name="csrf_token" value="{{csrf_token}}"/ hidden><br>
+                <input type="submit" name="register" value="Register"/>
+            </form>
+        </div>
+
+        %include("footer.tpl")
+    </body>
+</html>

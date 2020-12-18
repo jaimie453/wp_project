@@ -66,7 +66,7 @@
                             
                         });
                         $("#completed_task_extras").append(
-                            "<a style=\"display: block; margin: 15px auto; width: 170px; height: 40px;\" href=\"/new_item\">"
+                            "<a style=\"display: block; margin: 15px auto; width: 170px; height: 40px;\" href=\"/clear_completed_tasks\">"
                             + "<button style=\"width: 170px; height: 40px;\" class=\"w3-button w3-teal\">Clear tasks</button>"
                             + "</a>"
                         );
