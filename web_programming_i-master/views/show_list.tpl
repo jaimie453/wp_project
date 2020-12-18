@@ -19,10 +19,10 @@
 
             $("#content").append(
                 "<tr>"
-                    + "<td class=\"w3-center\"><a href=\"/update_task/\"" + row["id"] + "><i class=\"material-icons\">edit</i></a></td>"
+                    + "<td class=\"w3-center\"><a href=\"/update_task/" + row["id"] + "\"><i class=\"material-icons\">edit</i></a></td>"
                     + "<td>" + row["task"] + "</td>"
                     + "<td class=\"w3-center\"><a href=\"/update_status/" + row["id"] + "/" + status + "\"><i class=\"material-icons\">" + iconName + "</i></a></td>"
-                    + "<td class=\"w3-center\"><a href=\"/delete_item/\"" + row["id"] + "><i class=\"material-icons\">delete</i></a></td>"
+                    + "<td class=\"w3-center\"><a href=\"/delete_item/" + row["id"] + "\"><i class=\"material-icons\">delete</i></a></td>"
                 + "</tr>"
             );
         });
