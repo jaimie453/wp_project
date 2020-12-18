@@ -11,10 +11,14 @@ from bottle import get, post, request, response, template, redirect, TEMPLATE_PA
 
 ON_PYTHONANYWHERE = "PYTHONANYWHERE_DOMAIN" in os.environ.keys()
 
+
+
 if ON_PYTHONANYWHERE:
     from bottle import default_app
+    base_url = "http://jaimie6453.pythonanywhere.com/"
 else:
     from bottle import run, debug
+    base_url = "http://localhost:8080/"
 
 
 def get_session(request, response):
@@ -129,7 +133,8 @@ def get_show_list_ajax():
     if session['username'] == 'Guest':
         redirect('/login')
         return
-    return template("show_list", session=session)
+    print(base_url)
+    return template("show_list", session=session, base_url=base_url)
 
 @get('/get_tasks')
 def get_get_tasks():
@@ -140,7 +145,7 @@ def get_get_tasks():
     else:
         result = db['todo'].all()
         tasks= [dict(r) for r in result]
-        print("get tasks")
+        print(tasks)
         text = json.dumps(tasks)
         return text
 
@@ -210,7 +215,7 @@ def post_new_item():
 if ON_PYTHONANYWHERE:
     TEMPLATE_PATH.insert(0,'C:/Users/Jaimie/Desktop/wp_project/web_programming_i-master/')
     application = default_app()
-else: 
+else:
     debug(True)
     TEMPLATE_PATH.insert(0,'C:/Users/Jaimie/Desktop/wp_project/web_programming_i-master/views')
     run(host="localhost", port=8080)

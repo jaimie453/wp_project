@@ -6,7 +6,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script>
   $(document).ready(function() {
-    $.getJSON("http://localhost:8080/get_tasks", function(rows) {
+    $.getJSON("http://jaimie6453.pythonanywhere.com/get_tasks", function(rows) {
         $.each(rows, function(i, row) {
             var statusId, iconName;
             if(row["status"]){
