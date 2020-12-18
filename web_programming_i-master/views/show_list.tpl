@@ -19,10 +19,10 @@
 
             $("#content").append(
                 "<tr>"
-                    + "<td><a href=\"/update_task/\"" + row["id"] + "><i class=\"material-icons\">edit</i></a></td>"
+                    + "<td class=\"w3-center\"><a href=\"/update_task/\"" + row["id"] + "><i class=\"material-icons\">edit</i></a></td>"
                     + "<td>" + row["task"] + "</td>"
-                    + "<td><a href=\"/update_status/" + row["id"] + "/" + status + "\"><i class=\"material-icons\">" + iconName + "</i></a></td>"
-                    + "<td><a href=\"/delete_item/\"" + row["id"] + "><i class=\"material-icons\">delete</i></a></td>"
+                    + "<td class=\"w3-center\"><a href=\"/update_status/" + row["id"] + "/" + status + "\"><i class=\"material-icons\">" + iconName + "</i></a></td>"
+                    + "<td class=\"w3-center\"><a href=\"/delete_item/\"" + row["id"] + "><i class=\"material-icons\">delete</i></a></td>"
                 + "</tr>"
             );
         });
@@ -32,7 +32,18 @@
 </head>
 <body>
 %include("header.tpl", session=session)
-<table id="content" class="w3-table w3-bordered w3-border"></table>
+<table style="width: 60%; margin:auto;" class="w3-table w3-bordered w3-border">
+    <colgroup>
+        <col span="1" style="width: 5%;">
+        <col span="1" style="width: 85%;">
+        <col span="1" style="width: 5%;">
+        <col span="1" style="width: 5%;">
+    </colgroup>
+
+    <tbody id="content">
+
+    </tbody>
+</table>
 %include("footer.tpl", session=session)
 </body>
 </html>
